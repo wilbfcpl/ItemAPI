@@ -134,7 +134,7 @@ unless ((defined $call1) && (defined $call2) && (defined $call3) && ( defined $c
    my ($result2,$trace2) = $call2->(%UpdateItemRequest);
    say Dumper($result2);
    
-   my $MyResponseStatusCode = ($result->{UpdateItemResponse}->{ResponseStatuses}->{cho_ResponseStatus}[0]->{ResponseStatus}->{Code});
+   my $MyResponseStatusCode = ($result2->{UpdateItemResponse}->{ResponseStatuses}->{cho_ResponseStatus}[0]->{ResponseStatus}->{Code});
  
    if ( (defined $MyResponseStatusCode) && ($MyResponseStatusCode == 0) )
     {
