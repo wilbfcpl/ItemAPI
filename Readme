@@ -1,0 +1,13 @@
+Perl files to use the CarlX ItemAPI and update Call Numbers for changes to the FCPL Children's Collections. These files change 
+E <author> BEGINNING TO READ 
+to 
+ER <author>
+perl UpdateItem.pl ItemBidOldCallNewCall.csv
+performs the change.
+CSV file must include columns ItemID, BID, Old Call Number, New Call Number.
+
+newcn.pl generates a New Call Number from an Old Call Number and its output file serves as input to UpdateItem.pl.
+perl newcn.pl <CSV file> >ItemBidOldCallNewCall.csv
+newcn.pl expcets columns Item,Bid, Old Call Number
+<CSV file> has come from a CSV file export of a query results from SQL Developer. 
+newcn.pl tries to compensate for typos and other mistakes in the Item Call Numbers.
