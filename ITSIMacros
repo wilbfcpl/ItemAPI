@@ -1,0 +1,31 @@
+BeginToER
+OLD_CATEGORY='BEGINNING TO READ'
+NEW_PREFIX = 'ER'
+AUTHOR_START=2
+AUTHOR_END=-20
+
+if OLD_CATEGORY in record['092']['a']:
+	callNumberAuthor=record['092']['a'][AUTHOR_START:AUTHOR_END]
+	record['092']['a'] = NEW_PREFIX + ' ' + callNumberAuthor
+	
+	
+ERtoBegin
+NEW_CATEGORY='BEGINNING TO READ'
+OLD_CATEGORY= "ER "
+PREFIX="E"
+AUTHOR_START=3
+
+if OLD_CATEGORY in record['092']['a']:
+	callNumberAuthor=record['092']['a'][AUTHOR_START:]
+	record['092']['a'] =PREFIX + ' ' + callNumberAuthor + ' -  ' + NEW_CATEGORY
+	
+FixDash
+OLD_CATEGORY=' - -  BEGINNING TO READ'
+NEW_CATEGORY='BEGINNING TO READ'
+PREFIX = 'E'
+AUTHOR_START=2
+AUTHOR_END=-23
+
+if OLD_CATEGORY in record['092']['a']:
+	callNumberAuthor=record['092']['a'][AUTHOR_START:AUTHOR_END]
+	record['092']['a'] = PREFIX + ' ' + callNumberAuthor + ' - ' + NEW_CATEGORY

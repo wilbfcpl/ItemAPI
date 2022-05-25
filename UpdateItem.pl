@@ -5,7 +5,7 @@
 # Usage: perl [-g] [-x] [-i] UpdateItem.pl item_file.csv
 # -g Debug/verbose -q quiet
 #
-# Expects Input csv file
+# Expects Input csv file with a header row
 # itemid,bid,old call number, new call number
 # 
 # Example First Two Lines of an Input File:
@@ -27,7 +27,7 @@ use XML::Compile::SOAP11;      # use SOAP version 1.1
 use XML::Compile::Transport::SOAPHTTP;
 use Getopt::Std;
 
-use constant API_CHUNK_SIZE => 10;
+use constant API_CHUNK_SIZE => 16;
 
 #Command line input variable handling
 our ($opt_g,$opt_x,$opt_q);
@@ -118,7 +118,7 @@ unless ((defined $call1) && (defined $call2) && (defined $call3) && ( defined $c
   $_ = <>;
   chomp;
   
-  my $pm =  new Parallel::ForkManager(API_CHUNK_SIZE*2);
+  my $pm =  new Parallel::ForkManager(API_CHUNK_SIZE);
 
 # End subroutine for each of the forked processes.
 # Save result, trace for examination by parent process
@@ -193,7 +193,7 @@ if ( defined($opt_g) ) {
      } # end for (my $current_line=0; $current_line<API_CHUNK_SIZE; $current_line++)
   } # end for (my $current_block=0; $current_block<$num_chunks;$current_block++ )
   
-  # Modulus / Remaining after dividing into bursts 
+  # Remaining Items after dividing into API_CHUNK_SIZE bursts 
   for ( my $mod_line=0; $mod_line<$mods; $mod_line++)
   {
    if ($quiet_mode==0) {
