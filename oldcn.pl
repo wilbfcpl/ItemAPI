@@ -1,6 +1,7 @@
 # Author:  <wblake@CB95043>
 # Created: May 17, 2022
 # Version: 0.01
+# Convert the new call number back to the original old one
 # Usage: perl [-g] [-r ] [-x] [-i] [-q] oldcn.pl cnfile.csv
 # -g Debug/verbose -r read only , no update, -i in, -q quiet
 #

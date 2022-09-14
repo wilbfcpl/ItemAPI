@@ -1,7 +1,8 @@
 # Author:  <wblake@CB95043>
 # Created: March 7, 2022
 # Version: 0.01
-#
+# Use the CarlX Item API to update the call number for Children's Collection Items or whatever Item Ids reside
+# in the input csv file
 # Usage: perl [-g] [-x] [-i] UpdateItem.pl item_file.csv
 # -g Debug/verbose -q quiet
 #
