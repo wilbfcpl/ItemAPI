@@ -4,8 +4,8 @@
 # Use the CarlX Item API to update the call number for Children's Collection Items or whatever Item Ids reside
 # in the input csv file
 # Usage: perl [-g] [-x] [-i] UpdateItem.pl item_file.csv
-# -g Debug/verbose -q quiet
-#
+# -g Debug/verbose -q quiet -x , -i tbd
+# -z use the old call number instead of the new for an "undo"
 # Expects Input csv file with a header row
 # itemid,bid,old call number, new call number
 # 
@@ -15,6 +15,7 @@
 # 21982030026524,67393,E TRAN - BEGINNING TO READ,ER TRAN,Transformers : Training day : hunt for the Decepticons /,"Teitelbaum, Michael",CBA,EPRDR
 
 use strict;
+use warnings;
 use diagnostics;
 use integer;
 use Time::HiRes qw( gettimeofday tv_interval);
@@ -31,8 +32,8 @@ use Getopt::Std;
 use constant API_CHUNK_SIZE => 16;
 
 #Command line input variable handling
-our ($opt_g,$opt_x,$opt_q);
-getopts('gx:q');
+our ($opt_g,$opt_x,$opt_q,$opt_z);
+getopts('gx:qz');
 
 my $local_filename=$0;
  $local_filename =~ s/.+\\([A-z]+.pl)/$1/;
@@ -108,7 +109,8 @@ unless ((defined $call1) && (defined $call2) && (defined $call3) && ( defined $c
   
   #[$local_filename" . ":" . __LINE__ . "]DBI Call lapsed time $elapsed."
   my $num_chunks = $nr/API_CHUNK_SIZE;
-  my $mods = $nr%API_CHUNK_SIZE;
+  # Header Row does not count
+  my $mods = ($nr%API_CHUNK_SIZE) -1;
   
   say "[$local_filename" . ":" . __LINE__ . "]Linecount " . $nr . " Burst Size " . API_CHUNK_SIZE . " Bursts " . $num_chunks . " Mod " . $mods;
   my (@items,@bids,@old_callnumbers,@new_callnumbers) ;
@@ -119,7 +121,11 @@ unless ((defined $call1) && (defined $call2) && (defined $call3) && ( defined $c
   $_ = <>;
   chomp;
   
-  my $pm =  new Parallel::ForkManager(API_CHUNK_SIZE);
+#my $pm =  new Parallel::ForkManager(API_CHUNK_SIZE);
+my $pm =  Parallel::ForkManager->new(
+    max_proc=>API_CHUNK_SIZE,
+    tempdir =>'/tmp');
+
 
 # End subroutine for each of the forked processes.
 # Save result, trace for examination by parent process
@@ -161,8 +167,9 @@ if ( defined($opt_g) ) {
     for (my $current_line=0; $current_line<API_CHUNK_SIZE; $current_line++)
       {
         $pid = $pm->start and next;
-    
-        $ItemRec{CallNumber} = $new_callnumbers[$current_line] ;
+
+	$ItemRec{CallNumber} = defined($opt_z) ? $old_callnumbers[$current_line]: $new_callnumbers[$current_line] ;
+	
         $UpdateItemRequest{ItemID}=$items[$current_line] ;
     
         ($result2[$current_line],$trace2[$current_line]) = $call2->(%UpdateItemRequest);
@@ -203,16 +210,24 @@ if ( defined($opt_g) ) {
    $_=<>;
     next if ( (not defined $_ ) || ($_=~/^ *$/) || ($_ =~/^\s*$/));
     chomp;
-    ($items[$mod_line], $bids[$mod_line], $old_callnumbers[$mod_line], $new_callnumbers[$mod_line] ) = split(/,/);
+   ($items[$mod_line], $bids[$mod_line], $old_callnumbers[$mod_line], $new_callnumbers[$mod_line] ) = split(/,/);
+   if ($quiet_mode == 0){
+     say "[$local_filename" . ":" . __LINE__ . "]Items @items " ;
+   }
    }
   
   for ( my $mod_line=0; $mod_line<$mods; $mod_line++ )
   {
+    if ($quiet_mode == 0) {
+    say("[$local_filename" . ":" . __LINE__ . "]mod_line $mod_line item $items[$mod_line]");
+  }
     $pid = $pm->start and next;
     if ($quiet_mode==0) {
     #say("[$local_filename" . ":" . __LINE__ . "]Parallel Fork Mod proc $mod_line");
     }
-    $ItemRec{CallNumber} = $new_callnumbers[$mod_line] ;
+    #    $ItemRec{CallNumber} = $new_callnumbers[$mod_line];
+    $ItemRec{CallNumber} = defined($opt_z) ? $old_callnumbers[$mod_line]: $new_callnumbers[$mod_line] ;
+    
     $UpdateItemRequest{ItemID}=$items[$mod_line] ;
   
     ($result2[$mod_line],$trace2[$mod_line]) = $call2->(%UpdateItemRequest);
