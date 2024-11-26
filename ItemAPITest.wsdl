@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:sch1="http://tlcdelivers.com/cx/schemas/tempitem" xmlns:sch2="http://tlcdelivers.com/cx/schemas/request" xmlns:sch3="http://tlcdelivers.com/cx/schemas/response" xmlns:sch4="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:sch5="http://tlcdelivers.com/cx/schemas/title" xmlns:sch6="http://tlcdelivers.com/cx/schemas/item" xmlns:sch7="http://tlcdelivers.com/cx/schemas/systemitemcodes" xmlns:sch8="http://tlcdelivers.com/cx/schemas/search" xmlns:sch9="http://tlcdelivers.com/cx/schemas/itemsuppression" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tlcdelivers.com/cx/schemas/itemAPI" targetNamespace="http://tlcdelivers.com/cx/schemas/itemAPI">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:item="http://tlcdelivers.com/cx/schemas/item" xmlns:itemAPI="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:itemstatus="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:itemsuppression="http://tlcdelivers.com/cx/schemas/itemsuppression" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:response="http://tlcdelivers.com/cx/schemas/response" xmlns:search="http://tlcdelivers.com/cx/schemas/search" xmlns:systemitemcodes="http://tlcdelivers.com/cx/schemas/systemitemcodes" xmlns:tempitem="http://tlcdelivers.com/cx/schemas/tempitem" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/itemAPI"><xs:import namespace="http://tlcdelivers.com/cx/schemas/tempitem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/item" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/systemitemcodes" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/search" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/itemsuppression" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="GetItemSuppressionRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element maxOccurs="unbounded" minOccurs="0" name="Items" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Bid" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="GetItemSuppressionResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="suppressions" type="itemsuppression:ItemSuppression" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="GetItemSuppressionRequest" type="itemAPI:GetItemSuppressionRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="GetItemSuppressionResponse" type="itemAPI:GetItemSuppressionResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="CreateItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Item" type="item:Item" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:element name="CreateItemRequest" type="itemAPI:CreateItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="CreateTempItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="TempItem" type="tempitem:TempItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType></xs:element><xs:element name="CreateTempItemResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType></xs:element><xs:complexType name="DeleteItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:element name="DeleteItemRequest" type="itemAPI:DeleteItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="GetItemListRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Branch" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Location" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Media" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="PagingParameters" type="request:PagingParameters" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:complexType name="GetItemListResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PagingResult" type="response:PagingResult" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="Item" type="item:fullItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="GetItemListRequest" type="itemAPI:GetItemListRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="GetItemListResponse" type="itemAPI:GetItemListResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="GetItemNotesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="SearchField" type="search:SearchFieldType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="SearchFieldValue" type="request:NonEmptyString" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="GetItemNotesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="Notes" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="GetItemNotesRequest" type="itemAPI:GetItemNotesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="GetItemNotesResponse" type="itemAPI:GetItemNotesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="CreateItemNoteRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Note" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="CreateItemNoteResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Note" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="CreateItemNoteRequest" type="itemAPI:CreateItemNoteRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="CreateItemNoteResponse" type="itemAPI:CreateItemNoteResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="DeleteItemNoteRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="NoteID" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="DeleteItemNoteResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="DeleteItemNoteRequest" type="itemAPI:DeleteItemNoteRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="DeleteItemNoteResponse" type="itemAPI:DeleteItemNoteResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="UpdateItemNoteRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Note" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="UpdateItemNoteResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Note" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="UpdateItemNoteRequest" type="itemAPI:UpdateItemNoteRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="UpdateItemNoteResponse" type="itemAPI:UpdateItemNoteResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="UpdateItemRequest" type="itemAPI:UpdateItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="UpdateItemRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Item" type="item:Item" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:element name="UpdateItemResponse" type="itemAPI:UpdateItemResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="UpdateItemResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:element name="CalculateFullCallNumberRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Item" type="item:Item" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:element><xs:element name="CalculateFullCallNumberResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="FullCallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:element><xs:complexType name="GetAvailableItemStatusRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:element name="GetAvailableItemStatusRequest" type="itemAPI:GetAvailableItemStatusRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="GetAvailableItemStatusResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="ItemStatusInfo" type="systemitemcodes:SystemItemCodes" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="GetAvailableItemStatusResponse" type="itemAPI:GetAvailableItemStatusResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="GetFillListRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Branch" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:complexType name="GetFillListResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="Item" type="item:FillItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="GetFillListRequest" type="itemAPI:GetFillListRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="GetFillListResponse" type="itemAPI:GetFillListResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="GetWHORequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:all xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Modifiers" type="request:Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:all></xs:complexType><xs:complexType name="GetWHOResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatuses" type="response:ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="WhoHas" type="item:WhoHas" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="WhoHad" type="item:WhoHad" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="WhoOwes" type="item:WhoOwes" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="WhoWants" type="item:WhoWants" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:element name="GetWHORequest" type="itemAPI:GetWHORequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="GetWHOResponse" type="itemAPI:GetWHOResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:item="http://tlcdelivers.com/cx/schemas/tempitem" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/tempitem"><xs:complexType name="TempItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="BranchCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="LocationCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="MediaCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="BID" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="CallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:request="http://tlcdelivers.com/cx/schemas/request" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/request"><xs:simpleType name="NonEmptyString" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minLength value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="PositiveLong" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minInclusive value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="FourDigitYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:positiveInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minInclusive value="1000" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:maxInclusive value="9999" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="Month" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:positiveInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minInclusive value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:maxInclusive value="12" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="Day" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:positiveInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minInclusive value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:maxInclusive value="31" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="DayTimeDuration" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:duration" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:pattern value="[^YM]*[DT].*" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="Modifiers" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[This element contains information about request modifiers<br/><br/>]]>
+			<![CDATA[InstitutionCode: 3 or 4 digit code indicating the Institution being used<br/><br/>]]>
+			<![CDATA[StationID:  The ID of the terminal/machine being used<br/><br/>]]>
+			<![CDATA[StaffID:  The ID of the employee submitting the request. Valid ID required for resetPIN.<br/><br/>]]>
+			<![CDATA[EnvBranch: Branch Code indicating the Branch being used; required for CheckInItem, CheckoutItem, and createSuggestion. Can be used optionally with getPatronSummaryOverview to limit counts returned to transactions associated with items held by, or fines and fees written at, the given Branch code. Default behavior, if the EnvBranch is excluded, is to return counts for all transactions.<br/><br/>]]>
+			<![CDATA[DebugMode:  Whether or not the request should be submitted in debug mode<br/><br/>]]>
+			<![CDATA[ReportMode: Whether or not the request should be submitted in report mode; implemented and required for CheckInItem, CheckOutItem, and updatePatronUserDefinedFields. If True, information about the attempted transaction will be returned, but the transaction will not be completed. If False, the transaction will be completed.<br/><br/>]]>
+			<![CDATA[Projection:  The level of detail for each result in the response<br/><br/>]]>
+			<![CDATA[RequestOrigin: The feature from which the request was initiated; required for UpdateItem. Limited to 12 characters<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="InstitutionCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="StationID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="StaffID" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:maxLength value="3" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType></xs:element><xs:element minOccurs="0" name="EnvBranch" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="DebugMode" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReportMode" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element default="Brief" minOccurs="0" name="Projection" type="request:Projection" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="RequestOrigin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="Projection" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[This element contains the different levels of detail available for certain results (such as Title or Branch)<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Full" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Retrieve the complete detail for each result in the response</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Brief" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Retrieve a subset of the detail for each result in the response</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Web" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Retrieve a small, optimized subset of details for web performance</xs:documentation></xs:annotation></xs:enumeration></xs:restriction></xs:simpleType><xs:complexType name="PagingParameters" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[This element contains parameters for determining how results should be returned in the response<br/><br/>]]>
+			<![CDATA[StartPos: Beginning location within the result set where records should be returned (ie if the result set contains 50 records, return the records
+			beginning with the 10th record).  Cannot be used in conjunction with FollowOnBrowseToken<br/><br/>]]>
+			<![CDATA[FollowOnBrowseToken: When conducting follow-on browses, this token specifies the next block of results to return.
+			Cannot be used in conjunction with StartPos<br/><br/>]]>
+			<![CDATA[NoOfRecords: The maximum number of results to return in the response<br/>]]>
+            </xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:choice minOccurs="0" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="StartPos" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="FollowOnBrowseToken" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:choice><xs:element name="NoOfRecords" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:response="http://tlcdelivers.com/cx/schemas/response" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/response"><xs:import namespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="ResponseStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[This element contains information regarding the status of a submitted request<br/><br/>]]>
+			<![CDATA[Code:  A numeric code indicating whether a request was successful or not<br/><br/>]]>
+			<![CDATA[Severity:  The level of importance of the response status<br/><br/>]]>
+			<![CDATA[ShortMessage:  A brief description of the response status<br/><br/>]]>
+			<![CDATA[LongMessage:  A more detailed description of the response status (optional)<br/><br/>]]>
+			<![CDATA[Resolution:  A message indicating what actions must be taken to fix an invalid/failed request<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Code" type="xs:unsignedLong" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Severity" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="ShortMessage" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="LongMessage" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Resolution" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="ResponseStatusesType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:choice maxOccurs="unbounded" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ResponseStatus" type="response:ResponseStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:choice></xs:complexType><xs:complexType name="PagingResult" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[This element contains metadata for the results<br/><br/>]]>
+			<![CDATA[StartPos: The start position of the results (if supplied in the request)<br/><br/>]]>
+			<![CDATA[FollowOnBrowseToken: The token required to retrieve the next block of results for a follow-on browse<br/><br/>]]>
+			<![CDATA[NoOfRecords: The number of results contained in the response<br/><br/>]]>
+			<![CDATA[MoreRecords: A boolean indicating if additional results are available<br/><br/>]]>
+			<![CDATA[TotalHits: The total number of records returned by a query (the response typically contains a subset of the total number of records found)<br/>]]>
+			<![CDATA[EstimatedTotalHits: The estimated total number of records returned by a query<br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:choice minOccurs="0" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="StartPos" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="FollowOnBrowseToken" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:choice><xs:element name="NoOfRecords" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="MoreRecords" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="TotalHits" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="EstimatedTotalHits" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="StandardMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Message: Extra information<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Message" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="MissingIDsMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[MissingIDs: List of Missing IDs<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="response:StandardMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element maxOccurs="unbounded" minOccurs="0" name="MissingIDs" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="BibInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element is a container for both the bid and a date.<br/><br/>]]>
+				<![CDATA[BID: The bid<br/><br/>]]>
+				<![CDATA[ModDate: The last modified date of the corresponding bid<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="BID" type="request:PositiveLong" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="ModDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="scn" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:itemstatus="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:request="http://tlcdelivers.com/cx/schemas/request" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/itemstatus"><xs:import namespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="ItemStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[This element contains information about the item status<br/><br/>]]>
+                <![CDATA[BranchName: Name of the library branch<br/><br/>]]>
+                <![CDATA[BranchNumber: Unique number assigned to the branch<br/><br/>]]>
+                <![CDATA[OwningBranchCode: Up to 6-character code assigned to a physical branch of the library that owns the item<br/><br/>]]>
+                <![CDATA[OwningBranchName: Name of the library branch that owns the item<br/><br/>]]>
+                <![CDATA[OwningBranchNumber: Unique number assigned to the branch that owns the item<br/><br/>]]>
+                <![CDATA[Suppress: Is the item suppress or not<br/><br/>]]>
+                <![CDATA[Type: Indicates whether an item record originated in Circulation or Acquisitions<br/><br/>]]>
+                <![CDATA[ThereAtLeastOneNote: Indicates if there are notes<br/><br/>]]>
+                <![CDATA[Notes: Any Notes tied to the item<br/><br/>]]>
+                <![CDATA[Status: Current Status of the item<br/><br/>]]>
+                <![CDATA[StatusDate: Date the item's status changed<br/><br/>]]>
+                <![CDATA[DueDate: Date the item is due or not needed<br/><br/>]]>
+                <![CDATA[CreationDate: Date the item record was created (or converted)<br/><br/>]]>
+                <![CDATA[EditDate: Date the item was last edited<br/><br/>]]>
+                <![CDATA[CallNumberFull: Formatted call number<br/><br/>]]>
+                <![CDATA[CNLabels: Labels for the 4 call number buckets<br/><br/>]]>
+                <![CDATA[Caption: Four 1-character fields that identify an issue<br/><br/>]]>
+                <![CDATA[Number: Third call number bucket<br/><br/>]]>
+                <![CDATA[Part: Second call number bucket<br/><br/>]]>
+                <![CDATA[Volume: First call number bucket<br/><br/>]]>
+                <![CDATA[Suffix: Fourth call number bucket<br/><br/>]]>
+                <![CDATA[ISID: Unique issue identification number<br/><br/>]]>
+                <![CDATA[Chronology: Date of an issue<br/><br/>]]>
+                <![CDATA[Enumeration: Enumerated value broken into four 5-byte fields, identifing an issue<br/><br/>]]>
+                <![CDATA[CircHistory: # of times item has been charged/renewed since counter last re-set<br/><br/>]]>
+                <![CDATA[CumulativeHistory: Number of times item has been charged/renewed since its creation<br/><br/>]]>
+                <![CDATA[HoldsHistory: Number of times item has gone to Hold Shelf status since counter set<br/><br/>]]>
+                <![CDATA[InHouseCirc: # of times item has been returned with an on shelf status since counter last re-set<br/><br/>]]>
+                <![CDATA[Price: Price of item<br/><br/>]]>
+                <![CDATA[ReserveBranchCode: Up to 6-character code assigned to a physical branch of the library that reserve the item<br/><br/>]]>
+                <![CDATA[ReserveType: The Reserve Type<br/><br/>]]>
+                <![CDATA[ReserveBranchLocation: The reserve branch location<br/><br/>]]>
+                <![CDATA[ReserveCallNumber: Item-level call number, variously derived<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="itemstatus:ItemStatusBrief" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Author" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BranchName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BranchNumber" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningBranchCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningBranchName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningBranchNumber" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Suppress" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Title" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ThereAtLeastOneNote" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="Notes" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="StatusDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="DueDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="EditDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CallNumberFull" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CNLabels" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Caption" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Number" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Part" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Volume" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Suffix" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ISID" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Chronology" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Enumeration" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CircHistory" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CumulativeHistory" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HoldsHistory" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="InHouseCirc" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Price" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveBranchCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveType" type="itemstatus:ReserveTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveBranchLocation" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveCallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="AlternateStatus" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CreatedBy" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="LastUpdatedBy" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="LocationName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="LocationNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningLocationCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningLocationName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningLocationNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="MediaNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="StatusCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NumberCaption" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PartCaption" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="VolumeCaption" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="SuffixCaption" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CopiesOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ItemHoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="TitleHoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="IssueHoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="ItemStatusBrief" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[ItemID: Item number (barcode)<br/><br/>]]>
+                <![CDATA[BranchCode: Up to 6-character code assigned to a physical branch of the library<br/><br/>]]>
+                <![CDATA[LocationCode: The location<br/><br/>]]>
+                <![CDATA[MediaCode: The media type<br/><br/>]]>
+                <![CDATA[BID: The ID of the bibliographic record<br/><br/>]]>
+                <![CDATA[CallNumber: Item-level call number, variously derived<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BranchCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="LocationCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="MediaCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BID" type="request:PositiveLong" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="ItemSearchType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[This element contains the available item search types<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="BID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="ITEM" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[NoteID: The Note ID<br/><br/>]]>
+                <![CDATA[NoteType: The Note Type<br/><br/>]]>
+                <![CDATA[NoteText: Text information <br/><br/>]]>
+                <![CDATA[NoteDate: Indicates when the note was created or edited<br/><br/>]]>
+                <![CDATA[Alias: Alias of the last staff member to create or edit<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="NoteID" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Item" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NoteType" type="itemstatus:ItemNoteTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NoteText" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NoteDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Alias" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="ItemNoteGroup" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="ItemNote" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="ReserveTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[This field contains the available ReserveTypes<br/>]]>
+            </xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Regular" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Reserve" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Reserve Only" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="ItemNoteTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[This field contains the available NoteTypes<br/>]]>
+            </xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Shelf Status Note" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Charge/Discharge Note" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Call Number Note" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Standard Note" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Boundwith Title" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Holdings Status Note" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Damaged Item Note" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:title="http://tlcdelivers.com/cx/schemas/title" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/title"><xs:complexType name="Title" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[This element contains all the fields for Title elements<br/>]]>
+			<![CDATA[BibID:  The bibliographic record ID of the title<br/>]]>
+			<![CDATA[Isbn:  The ISBN of the title<br/>]]>
+			<![CDATA[Author:  The author of the title<br/>]]>
+			<![CDATA[DisplayTitle:  The actual title of the work<br/>]]>
+			<![CDATA[PublicationYear:  The year the title was published<br/>]]>
+			<![CDATA[CallNumber:  The call number of the title<br/>]]>
+			<![CDATA[NormalizedCallNumber:  The call number of the title with special characters removed<br/>]]>
+			<![CDATA[Language:  The language of the title<br/>]]>
+			<![CDATA[RecordType:  Bytes 6 and 7 of the bibliographic leader<br/>]]>
+			<![CDATA[Format:  The format of the title (book, DVD, etc)<br/>]]>
+			<![CDATA[Upc:  The title's Universal Product Code<br/>]]>
+			<![CDATA[InstBit:  The title's numeric institution code<br/>]]>
+			<![CDATA[Folder:  Number representing a particular collection of records for an institution (0=Live, 2=Work)<br/>]]>
+			<![CDATA[HiddenType:  Enumeration indicating whether to display the title<br/>]]>
+			<![CDATA[SuppressType:  Enumeration indicating under what conditions to set the HiddenType flag<br/>]]>
+			<![CDATA[SuppressDate:  Date through which to suppress the display of the title<br/>]]>
+			<![CDATA[PrintAuthor:  The author of the title with special characters removed<br/>]]>
+			<![CDATA[PrintTitle:  The title of the work with special characters removed<br/>]]>
+			<![CDATA[HoldCount:  The number of item holds for the title<br/>]]>
+			<![CDATA[Status:  The status of the title<br/>]]>
+			<![CDATA[TitleIndicators:  Indicator field from title tag<br/>]]>
+			<![CDATA[BibType:  Flag indicating if the title is full (0) or temporary (1)<br/>]]>
+			<![CDATA[ExternalControlNumber:  The title's control number from an outside institution<br/>]]>
+			<![CDATA[BibLatestChange:  Date of most recent change to title<br/>]]>
+			<![CDATA[ItemsLatestChange:  Date of most recent change to any of title's items<br/>]]>
+			<![CDATA[EResource:  Indicator of whether the title is an eResource or not<br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="BibID" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Isbn" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Author" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="DisplayTitle" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PublicationYear" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NormalizedCallNumber" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Language" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="RecordType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Format" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Upc" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="InstBit" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Folder" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HiddenType" type="title:HiddenType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="SuppressType" type="title:SuppressType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="SuppressDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PrintAuthor" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PrintTitle" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HoldCount" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="TitleIndicators" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BibType" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ExternalControlNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BibLatestChange" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ItemsLatestChange" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="EResource" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="HiddenType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="NotHidden" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Hidden" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="SuppressType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Unsuppress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Suppress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="SuppressThrough" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="SuppressForNoItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="NeverSuppress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="UndoManualSuppress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:item="http://tlcdelivers.com/cx/schemas/item" xmlns:itemstatus="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:title="http://tlcdelivers.com/cx/schemas/title" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/item"><xs:import namespace="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:import namespace="http://tlcdelivers.com/cx/schemas/title" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="Item" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Item ID: The Item number (barcode). A required input for updateItem.<br/><br/>]]>
+				<![CDATA[BID: The unique number associated with an existing Bibliographic Record.<br/><br/>]]>
+				<![CDATA[Branch: Numeric value of the Branch associated with an item.<br/><br/>]]>
+				<![CDATA[Owning Branch: Numeric value of the Owning Branch associated with an item.<br/><br/>]]>
+				<![CDATA[Location: Numeric value of the Location associated with an Item.<br/><br/>]]>
+				<![CDATA[Owning Location: Numeric value of the Owning Location associated with an item.<br/><br/>]]>
+				<![CDATA[Media: Numeric value of the Media associated with an Item.<br/><br/>]]>
+				<![CDATA[Status: Status code of an item.  Status codes available include:  S = On Shelf, ST = On Shelf Temporary, SP = In Process, SG = Damaged, SM = Missing, SW = Withdrawn, SX = Not on Shelf, SC = Custom Status 1, SU = Custom Status 2, SS = Custom Status 3, SO = Custom Status 4, SI = Display, SD = Shelving Delay, C = Charged to patron (includes overdue and lost), CT = Charged Temporary, L = A9/Lost, LT = Lost Temporary, I = In Transit, IT = In Transit Temporary, H = Hold Shelf, HT = Hold Shelf Temporary, IH = Hold in Transit, T = Traced. Note that items currently in a transactional status cannot have their status updated via this method.<br/><br/>]]>
+				<![CDATA[Call Number: Item Call Number.<br/><br/>]]>
+				<![CDATA[Manually Suppressed: Whether or not an item is manually suppressed, where True = Suppressed and False = Not Manually Suppressed.<br/><br/>]]>
+				<![CDATA[Bucket: A list of Bucket data associated with the item. Each item can have up to four bucket entries, each of which consists of three elements.<br/>Position: The position of hierarchical data fields. Available positions are 1 - 4.<br/>Label: The field label associated with the selected bucket position.<br/>Data: The data associated with the selected bucket position.<br/><br/>]]>
+				<![CDATA[Chronology: Date of an issue or Item.  Available options are, Seasonal, Month/Day/Year, Year, Month/Year.<br/>Seasonal: Use for materials with a seasonal publication pattern.<br/>Season: Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.<br/>Hemisphere: Enumerated value indicating the hemisphere of the publication.  Available values include: Northern or Southern<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthDayYear: Use for items with a Month, Day, Year publication pattern.<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/>Day: Restricted string indicating the month of publication. Must be two digits between 01-31<br/>Year: Use for items that are published yearly.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthYear: Use for items with a Month and Year publication pattern only.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/><br/>]]>
+				<![CDATA[Enumeration: Enumeration data associated with the item, which consists of the following elements:<br/>Position: Restricted string indicating the position of the enumerated value. Available positions are 1-4.<br/>Label:  The field label associated with the selected Enumeration position.<br/>Data: Restricted string indicating the data associated with the selected bucket position. Entry limited to 10 characters.<br/><br/>]]>
+				<![CDATA[Alternate Shelf Status: Alternate status information about the item that staff may use to communication information about the item in lieu of (or in addition to) the validated status codes and their descriptions.<br/><br/>]]>
+				<![CDATA[Reserve Loan Period: Not currently implemented.<br/><br/>]]>
+				<![CDATA[Reserve Media: Not currently implemented.<br/><br/>]]>
+				<![CDATA[Rotate Flag: Not currently implemented.<br/><br/>]]>
+				<![CDATA[Reserve Branch: Not currently implemented.<br/><br/>]]>
+				<![CDATA[Reserve Location: Not currently implemented.<br/><br/>]]>
+				<![CDATA[Reserve Type: Not currently implemented.<br/><br/>]]>
+				<![CDATA[Reserve Call Number: Not currently implemented.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BID" type="request:PositiveLong" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningBranch" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="OwningLocation" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveLoanPeriod" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveMedia" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Media" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Price" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="RotateFlag" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Branch" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Location" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveBranch" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveLocation" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveType" type="itemstatus:ReserveTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReserveCallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ManuallySuppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="4" minOccurs="0" name="Bucket" type="item:Bucket" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Chronology" type="item:Chronology" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="4" minOccurs="0" name="Enumeration" type="item:Enumeration" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="AlternateStatus" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="Bucket" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<![CDATA[Position: The position of hierarchical data fields. Available positions are 1 - 4.<br/><br/>]]>
+			<![CDATA[Label: The field label associated with the selected bucket position.<br/><br/>]]>
+			<![CDATA[Data: The data associated with the selected bucket position.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Position" type="item:BucketPosition" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Label" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Data" type="item:BucketData" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="BucketPosition" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:positiveInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minInclusive value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:maxInclusive value="4" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="BucketData" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:maxLength value="10" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="Chronology" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Chronology: Date of an issue or Item.  Available options are, Seasonal, Month/Day/Year, Year, Month/Year.<br/>Seasonal: Use for materials with a seasonal publication pattern.<br/>Season: Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.<br/>Hemisphere: Enumerated value indicating the hemisphere of the publication.  Available values include: Northern or Southern<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthDayYear: Use for items with a Month, Day, Year publication pattern.<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/>Day: Restricted string indicating the month of publication. Must be two digits between 01-31<br/>Year: Use for items that are published yearly.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthYear: Use for items with a Month and Year publication pattern only.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:choice xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Seasonal" type="item:Seasonal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="MonthDayYear" type="item:MonthDayYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="MonthYear" type="item:MonthYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Year" type="item:Year" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:choice></xs:complexType><xs:complexType name="Seasonal" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Season: Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.<br/>Hemisphere: Enumerated value indicating the hemisphere of the publication.  Available values include: Northern or Southern<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Season" type="item:Season" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Hemisphere" type="item:Hemisphere" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Year" type="request:FourDigitYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="Season" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.<br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Winter" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Spring" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Summer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Fall" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="Hemisphere" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Enumerated value indicating the hemisphere of the publication. Available values include: Northern or Southern<br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Northern" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Southern" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="MonthDayYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Use for items with a Month, Day, Year publication pattern.<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/>Day: Restricted string indicating the month of publication. Must be two digits between 01-31<br/>Year: Use for items that are published yearly.<br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Month" type="request:Month" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Day" type="request:Day" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Year" type="request:FourDigitYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="MonthYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Use for items with a Month and Year publication pattern only.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Month" type="request:Month" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Year" type="request:FourDigitYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="Year" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Use for items that are published yearly.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999<br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Year" type="request:FourDigitYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="Enumeration" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Position: Restricted string indicating the position of the enumerated value.  Available positions are 1-4.<br/><br/>]]>
+				<![CDATA[Label: The field label associated with the selected Enumeration position.<br/><br/>]]>
+				<![CDATA[Data: Restricted string indicating the data associated with the selected bucket position. Entry limited to 10 characters.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="Position" type="item:EnumerationPosition" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Label" type="item:EnumerationLabel" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Data" type="item:EnumerationData" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:simpleType name="EnumerationLabel" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[The field label associated with the selected Enumeration position.]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minLength value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:maxLength value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="EnumerationPosition" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Restricted string indicating the position of the enumerated value.  Available positions are 1-4.]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:positiveInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:minInclusive value="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:maxInclusive value="4" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="EnumerationData" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Restricted string indicating the data associated with the selected bucket position. Entry limited to 10 characters.]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:maxLength value="5" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="FillItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains information about the Fill List items.<br/>]]>
+				<![CDATA[Title: Title of a work, usually from the Bib 245 tag.<br/>]]>
+				<![CDATA[Author: The author of the work, usually from the Bib 1xx tag.<br/>]]>
+				<![CDATA[LocationCode: The Location Code associated with the item.<br/>]]>
+				<![CDATA[CallNumberFull: Item call number that includes formatted chronology, enumeration, and bucket data when present.<br/>]]>
+				<![CDATA[NormalizedCallNumber: Formatted Call Number, derived from Full Call Number.<br/>]]>
+				<![CDATA[Item: Item number (barcode).<br/>]]>
+				<![CDATA[ItemGUID: The static identifier associated with the item.<br/>]]>
+				<![CDATA[BranchCode: The item's Branch Code.<br/>]]>
+				<![CDATA[PickupBranchCode: The item's Pickup Branch Code.<br/>]]>
+				<![CDATA[MediaCode: The Media Code associated with the item.<br/>]]>
+				<![CDATA[Type: S = Issue Hold, T = Title Hold, and I = Item Hold.<br/>]]>
+				<![CDATA[CircBranch: The point of circulation for the item's Branch.<br/>]]>
+				<![CDATA[Status Date: The date that the item's status last changed.<br/>]]>
+				<![CDATA[BID: The unique identifier for the bibliographic record.<br/>]]>
+				<![CDATA[ISID: The unique identifier for the issue set.<br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Title" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="LocationCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CallNumberFull" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NormalizedCallNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Author" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Item" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ItemGUID" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BranchCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="MediaCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CircBranch" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="StatusDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PickUpBranchCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BID" type="request:PositiveLong" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ISID" type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="fullItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Item: Item number (barcode). Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Branch: Valid branch code from the BRANCH table. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Location: Valid location code from the LOCATION table. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Media: Valid media number from the MEDIA table. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[CN: Item-level call number, variously derived. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Status Date: Date the item's status changed. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[BID: Unique Bibliographic record ID number.  Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Circ History: Number of times item has been charged/renewed since counter last re-set. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Cumulative History: Number of times item has been charged/renewed since its creation. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[In House Circ: Number of times item has been returned with an on shelf status since counter last re-set. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Holds History: # of times item has gone to Hold Shelf status since counter set. Included in Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Title: Title of a work, usually from the Bib 245 tag. Included in Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Author: Author of a work, from the Bib 100 tag. Included in Brief and Full Projection<br/><br/>]]>
+				<![CDATA[Occur: Unique occurrence number. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[OwningBranch: Numeric value of owning branch. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[OwningLocation: Numeric value of owning location. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ReserveLoanPeriod: Valid Reserve loan period from the RLP file. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ReserveMedia: Valid Reserve media type value from the RTY file. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[DueDate: (Tandem Julian Timestamp) Date the item is due or not needed. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Notes: Indicates whether a patron has note(s) attached; must be either "*" or blank. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Type: Indicates whether an item record originated in Circulation or Acquisitions. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[EditDate: Date the item was last edited. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[UserID: Logon alias of staff who last edited item. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Branch1: Valid branch value from the BRA file. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[CreationDate: Date the item record was created (converted). Included in Full Projection only<br/><br/>]]>
+				<![CDATA[InstBit: Numeric code from Institution table. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ISID: Issue set ID number references ISSUESET table. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Suppress: Y/N:  Hidden item. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ReserveBranch: Branch of reserve item. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ReserveLocation: Location of reserve item. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ReserveType: Type of item; 0 - regular, 1-reserve, 2- reserve only. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ReserveCN: Call Number of Reserve Item. Variously derived. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Folder: Number representing a particular collection of records for an institution. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[CallNumberFull: Call number of a work, variously derived. Included in the Brief and Full Projection<br/><br/>]]>
+				<![CDATA[PublicationDate: Date of publication of title. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[Language: Language of the work. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[RecordType: Bytes 6 and 7 of the bibliographic leader. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[TitleIndicators: Indicator field from title tag. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[BibType: Flag indicating if the title is full (0) or temporary (1).  Included in Full Projection only<br/><br/>]]>
+				<![CDATA[HiddenType: Flag indicating whether to display the bib record (0 = show; 1 = hide). Included in Full Projection only<br/><br/>]]>
+				<![CDATA[AcqType: Acquisitions type (0 = Book in house; 1 = Book on order). Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ISBN: International Standard Book Number. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[BibSuppressDate: Date through which to Suppress display of the bib record. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[BibSuppressType: Flag indicating under what conditions to set the HiddenType flag (0 = auto, 1 = manual, 2 = through date, 3 = for no item, 4 = never). Included in Full Projection only<br/><br/>]]>
+				<![CDATA[UPC: Universal Product Code for title, from 024 tag. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[BibLatestChange: Time of latest change to bib record. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[ItemsLatestChange: Time of latest change to items on bib record. Included in Full Projection only<br/><br/>]]>
+				<![CDATA[eResource: 'Y' or 'N'. Indicates if a bid is an eresource or not. Included in Full Projection only<br/>]]>
+			</xs:documentation></xs:annotation><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="item:Item" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="StatDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CircHistory" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CumulativeHistory" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="InHouseCirc" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HoldHistory" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Title" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Author" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Occur" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="DueDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Notes" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="EditDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="UserId" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Branch1" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="InstBit" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ISID" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Suppress" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Folder" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CallNumberFull" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="PublicationDate" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Language" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="RecordType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="TitleIndicators" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BibType" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HiddenType" type="title:HiddenType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="AcqType" type="item:AcqType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ISBN" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BibSuppressDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BibSuppressType" type="title:SuppressType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="UPC" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="BibLatestChange" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ItemsLatestChange" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="EResource" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="CopiesOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="HoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ItemHoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="TitleHoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="IssueHoldsOnBid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element maxOccurs="unbounded" minOccurs="0" name="ItemNote" type="itemstatus:ItemNote" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="StaffItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="item:FillItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<![CDATA[Status: Current status: S = On Shelf, ST = Shelf Temp Item, C = Charged to patron (includes odue and lost),CT = Charge Temp Item,  L = A9/Lost, LT = A9/Lost temp, I = In Transit, IT = In transit Temp Item, H = Hold Shelf,  HT = Hold Shelf Temp, IH = Hold In Transit, T = Traced <br/><br/>]]>
+					</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:simpleType name="AcqType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="InHouse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="OnOrder" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="WhoHas" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="item:WHOPatron" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="ItemID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="ChargeOnDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="DueOnDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="WhoHadItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="item:WHOPatron" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="AltID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="ChargeDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="ReturnDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="WhoHad" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element maxOccurs="unbounded" minOccurs="0" name="WhoHadItem" type="item:WhoHadItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="WhoOwesItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="item:WHOPatron" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="TransactionType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="DueDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="Branch" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="WhoOwes" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element maxOccurs="unbounded" minOccurs="0" name="WhoOwesItem" type="item:WhoOwesItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="WhoWantsItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:extension base="item:WHOPatron" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="TransactionType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="DatePlaced" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="NNADate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="PickupAt" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="NumberInQueue" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType><xs:complexType name="WHOPatron" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="PatronName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="PatronType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="PatronID" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Phone1" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Phone2" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Email" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="WhoWants" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element maxOccurs="unbounded" minOccurs="0" name="WhoWantsItem" type="item:WhoWantsItem" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:systemitemcodes="http://tlcdelivers.com/cx/schemas/systemitemcodes" attributeFormDefault="unqualified" elementFormDefault="unqualified" jaxb:version="2.1" targetNamespace="http://tlcdelivers.com/cx/schemas/systemitemcodes"><xs:import namespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="SystemItemCodes" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:appinfo xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<jaxb:class implClass="org.carl.api.code.SystemItemCodes" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"/>
+			</xs:appinfo><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[Code: 1 to 2 letter status code associated with the Status.  The status codes do not change in the database.  For example, C is always for Checked Out materials, S is always for On Shelf materials.Description: The description of the status.  This value can be modified by the library to reflect whatever customized wording the library would like.  While the Description can change, the Status Code will stay the same.<br/><br/>]]>
+				<![CDATA[Archived: Indicates whether or not the status is Archived, and not available for use: Y = archived; N  = not archived.<br/><br/>]]>
+				<![CDATA[Load: Indicates whether or not the status is available to use when Loading items: Y = available; N  = not available.<br/><br/>]]>
+				<![CDATA[Shelf: Indicates whether or not the status is available when editing items: Y = available; N  = not available<br/><br/>]]>
+				<![CDATA[Suppressed: Indicates whether or not the status is automatically suppressed: Y = suppressed; N  = not suppressed.<br/><br/>]]>
+				<![CDATA[Type: Only statuses with blank (or null) should be returned.<br/><br/>]]>
+				<![CDATA[Admin: Indicates whether or not the status is displayed in CARL.X Administration>Application Parameters>Public Access>Item Statuses tab: Y = displayed; N  = not displayed.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="InstBit" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Description" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Archived" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Load" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Shelf" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Suppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Admin" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType><xs:complexType name="SystemItemCodesInsert" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:restriction base="systemitemcodes:SystemItemCodes" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="Code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="InstBit" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Description" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Archived" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Load" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Shelf" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Suppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="Admin" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:restriction></xs:complexContent></xs:complexType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:search="http://tlcdelivers.com/cx/schemas/search" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/search"><xs:import namespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:simpleType name="SearchCatalogType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains the available catalog search types<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Author/Name" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words from name headings without regard
+						to word order.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse All Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns a single alphabetical listing of all
+						authority headings including name, subject, series and uniform
+						title. Response also includes a follow on token for paging, as
+						well as "Titles For Heading" tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Author/Name Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns an alphabetical listing of name headings
+						showing the number of bibliographic records for each heading as
+						well as authority information. Personal names must be searched
+						with surname first. Response also includes a follow on token for
+						paging, as well as "Titles For Heading" tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Call Number" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns a list of bibliographic records sorted by
+						title-level call number, starting with the call number searched
+						(or the call number following closest).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Call Number 1" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Call Number 2" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Call Number 3" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Call Number 4" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Call Number Item" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns a list of bibliographic records sorted by
+						item-level call number, starting with the call number searched (or
+						the call number following closest).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Series Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns an alphabetical listing of series
+						headings showing the number of bibliographic records for each
+						heading as well as authority information. Response also includes a
+						follow on token for paging, as well as "Titles For Heading"
+						tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Subject Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns an alphabetical listing of subject
+						headings showing the number of bibliographic records for each
+						heading as well as authority information. Response also includes a
+						follow on token for paging, as well as "Titles For Heading"
+						tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Browse Title" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Returns a list of bibliographic records sorted by
+						title, starting with the phrase searched (or the title following
+						closest to the phrase searched).
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="CARL BID" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches the CARL BID (Bibliographic Identifier),
+						the unique number assigned to a bibliographic record as it enters
+						your CARL database.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Command" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Quick Search Commands are available for all
+						search types and can be used to bypass the selection of a Search
+						Type.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="ISBN" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches ISBN data from bibliographic tag 020 and
+						Acquisitions orders.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="ISSN" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches ISSN data from bibliographic tag 022 and
+						Acquisitions orders.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Keyword" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches all words that appear in bibliographic
+						records.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="LCCN" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches LCCN data from bibliographic tag 010.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Matcher" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches number data in bibliographic records,
+						including OCLC Control Number.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Name Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words in name headings without regard to
+						word order. Returns an alphabetical list of headings showing the
+						number of associated bibliographic records, authority information,
+						and "Titles For Heading" tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Name/Word" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words from name headings, combined with
+						words from bibliographic records.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Series" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words in series headings without regard
+						to word order. Returns a list of bibliographic records where the
+						search terms entered are found in a Series Heading that has been
+						indexed for searching.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Series Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words in series headings without regard
+						to word order. Returns an alphabetical list of those headings
+						showing the number of associated bibliographic records, authority
+						information and "Titles For Heading" tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Subject" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words in subject headings without regard
+						to word order. Returns a list of bibliographic records where the
+						search terms entered are found in a Subject Heading that has been
+						indexed for searching.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Subject Headings" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches words in subject headings without regard
+						to word order. Returns an alphabetical list of those headings
+						showing the number of associated bibliographic records, authority
+						information, and "Titles For Heading" tokens.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Title Word" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Searches title data in bibliographic records
+						without regard to word order.
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Titles for Heading" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Utilizing a token generated by searches that lead
+						to authority data, retrieves bibliographic records associated with
+						a given authority record.
+					</xs:documentation></xs:annotation></xs:enumeration></xs:restriction></xs:simpleType><xs:simpleType name="AllPatronSearch" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains all the available patron searches<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Patron ID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="General User ID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="Alternate ID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="BasicPatronSearch" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains the basic available patron searches<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="search:AllPatronSearch" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Patron ID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="General User ID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:simpleType name="SearchFieldType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains the available catalog information search types<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="BID" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="ISBN" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="ITEM" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="PATRON" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType><xs:complexType name="Limiters" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains information for search limiting<br/><br/>]]>
+				<![CDATA[DateLimit:  Limits the search results to those that match the given date criteria<br/><br/>]]>
+				<![CDATA[BranchLimit:  Limits the search results to those that match the given branch(es)<br/><br/>]]>
+				<![CDATA[FormatLimit:  Limits the search results to those that match the given format(s)<br/><br/>]]>
+				<![CDATA[LanguageLimit:  Limits the search results to those that match the given language(s)<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element minOccurs="0" name="DateLimit" type="search:DateLimit" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Limits the search results to those that match the
+						given date criteria
+					</xs:documentation></xs:annotation></xs:element><xs:element maxOccurs="unbounded" minOccurs="0" name="BranchLimit" type="request:NonEmptyString" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Limits the search results to those that match the
+						given branch(es)
+					</xs:documentation></xs:annotation></xs:element><xs:element maxOccurs="unbounded" minOccurs="0" name="FormatLimit" type="xs:short" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Limits the search results to those that match the
+						given format(s)
+					</xs:documentation></xs:annotation></xs:element><xs:element maxOccurs="unbounded" minOccurs="0" name="LanguageLimit" type="request:NonEmptyString" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Limits the search results to those that match the
+						given language(s)
+					</xs:documentation></xs:annotation></xs:element></xs:sequence></xs:complexType><xs:complexType name="DateLimit" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[This element contains the date limiting information<br/><br/>]]>
+				<![CDATA[DateFilter:  The criteria on which to compare the dates in the results<br/><br/>]]>
+				<![CDATA[Date:  The date as a 4-digit year which can be appear either once or twice depending on whether the date filter is a range or not<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="DateFilter" type="search:DateFilterType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">The criteria on which to compare the dates in the
+						results
+					</xs:documentation></xs:annotation></xs:element><xs:element maxOccurs="2" minOccurs="0" name="Date" type="xs:integer" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">The date as a 4-digit year which can be appear
+						either once or twice depending on whether the date filter is a
+						range or not
+					</xs:documentation></xs:annotation></xs:element></xs:sequence></xs:complexType><xs:simpleType name="DateFilterType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[The types of date limiting. Between requires 2 dates. None requires 0 dates. All others require 1.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="Equals" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Filters on results that are Equal to the given
+						date
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Between" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Filters on results that are Between the given
+						dates (inclusive)
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="Before" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Filters on results that are Before the given date
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="After" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Filters on results that are After the given date
+					</xs:documentation></xs:annotation></xs:enumeration><xs:enumeration value="None" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">No date filter is applied to results
+					</xs:documentation></xs:annotation></xs:enumeration></xs:restriction></xs:simpleType><xs:simpleType name="ComparativeSearchApplicationType" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<![CDATA[The types of search applications.<br/><br/>]]>
+			</xs:documentation></xs:annotation><xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:enumeration value="contains" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="does not contain" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="exact match" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="begins with" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="ends with" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="less than" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="greater than" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="equal to" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:enumeration value="between" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:restriction></xs:simpleType></xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://tlcdelivers.com/cx/schemas/itemsuppression" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://tlcdelivers.com/cx/schemas/itemsuppression"><xs:complexType name="ItemSuppression" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <![CDATA[item: The item identifier.<br/><br/>]]>
+                <![CDATA[bid: The unique number associated with an existing Bibliographic Record.<br/><br/>]]>
+                <![CDATA[instbit: Institution identifier.<br/><br/>]]>
+                <![CDATA[suppress: supressed indicator.<br/><br/>]]>
+                <![CDATA[suppresstype: Type of suppression.<br/><br/>]]>
+                <![CDATA[type: Type of suppression.<br/><br/>]]>
+                <![CDATA[status: Status of an item.  S = On Shelf, ST = On Shelf Temporary, SP = In Process, SG = Damaged, SM = Missing, SW = Withdrawn, SX = Not on Shelf, SC = Custom Status 1, SU = Custom Status 2, SS = Custom Status 3, SO = Custom Status 4, SI = Display, SD = Shelving Delay, C = Charged to patron (includes overdue and lost), CT = Charged Temporary, L = A9/Lost, LT = Lost Temporary, I = In Transit, IT = In Transit Temporary, H = Hold Shelf, HT = Hold Shelf Temporary, IH = Hold in Transit, T = Traced. A required input for createItem (S, SP, ST).<br/><br/>]]>
+                <![CDATA[location: Numeric value of the Location associated with an Item.<br/><br/>]]>
+                <![CDATA[media: Numeric value of the Media associated with an item.<br/><br/>]]>
+                <![CDATA[branch: Numeric value of the Branch associated with an item.<br/><br/>]]>
+                <![CDATA[branchSuppressed: Branch supressed indicator.<br/><br/>]]>
+                <![CDATA[locationSuppressed: Location supressed indicator.<br/><br/>]]>
+                <![CDATA[mediaSuppressed: Media supressed indicator.<br/><br/>]]>
+                <![CDATA[statusCodeSuppressed: status code supressed indicator.<br/><br/>]]>
+                <![CDATA[suppressed: supressed indicator.<br/><br/>]]>
+            </xs:documentation></xs:annotation><xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="item" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="bid" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="instbit" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="suppress" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="suppresstype" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="status" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="location" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="media" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element minOccurs="0" name="branch" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="branchSuppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="locationSuppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="mediaSuppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="statusCodeSuppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/><xs:element name="suppressed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/></xs:sequence></xs:complexType></xs:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateTempItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CreateTempItemResponse" name="CreateTempItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CalculateFullCallNumberRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CalculateFullCallNumberRequest" name="CalculateFullCallNumberRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetFillListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetFillListRequest" name="GetFillListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:DeleteItemRequest" name="DeleteItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:UpdateItemNoteResponse" name="UpdateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetFillListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetFillListResponse" name="GetFillListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetItemListRequest" name="GetItemListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemNotesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetItemNotesResponse" name="GetItemNotesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:DeleteItemNoteRequest" name="DeleteItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:UpdateItemNoteRequest" name="UpdateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemSuppressionResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetItemSuppressionResponse" name="GetItemSuppressionResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetItemListResponse" name="GetItemListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:UpdateItemResponse" name="UpdateItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetWHOResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetWHOResponse" name="GetWHOResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateTempItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CreateTempItemRequest" name="CreateTempItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CreateItemNoteRequest" name="CreateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:UpdateItemRequest" name="UpdateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableItemStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetAvailableItemStatusResponse" name="GetAvailableItemStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetWHORequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetWHORequest" name="GetWHORequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemSuppressionRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetItemSuppressionRequest" name="GetItemSuppressionRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemNotesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetItemNotesRequest" name="GetItemNotesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CalculateFullCallNumberResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CalculateFullCallNumberResponse" name="CalculateFullCallNumberResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CreateItemRequest" name="CreateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:DeleteItemNoteResponse" name="DeleteItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:CreateItemNoteResponse" name="CreateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableItemStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="sch0:GetAvailableItemStatusRequest" name="GetAvailableItemStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CarlXAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:operation name="CreateTempItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:CreateTempItemRequest" name="CreateTempItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:CreateTempItemResponse" name="CreateTempItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateFullCallNumber" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:CalculateFullCallNumberRequest" name="CalculateFullCallNumberRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:CalculateFullCallNumberResponse" name="CalculateFullCallNumberResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFillList" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:GetFillListRequest" name="GetFillListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:GetFillListResponse" name="GetFillListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:DeleteItemRequest" name="DeleteItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemNote" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:UpdateItemNoteRequest" name="UpdateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:UpdateItemNoteResponse" name="UpdateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemList" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:GetItemListRequest" name="GetItemListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:GetItemListResponse" name="GetItemListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemNotes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:GetItemNotesRequest" name="GetItemNotesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:GetItemNotesResponse" name="GetItemNotesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemNote" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:DeleteItemNoteRequest" name="DeleteItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:DeleteItemNoteResponse" name="DeleteItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemSuppression" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:GetItemSuppressionRequest" name="GetItemSuppressionRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:GetItemSuppressionResponse" name="GetItemSuppressionResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:UpdateItemRequest" name="UpdateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:UpdateItemResponse" name="UpdateItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWHO" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:GetWHORequest" name="GetWHORequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:GetWHOResponse" name="GetWHOResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItemNote" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:CreateItemNoteRequest" name="CreateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:CreateItemNoteResponse" name="CreateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableItemStatus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:GetAvailableItemStatusRequest" name="GetAvailableItemStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="sch0:GetAvailableItemStatusResponse" name="GetAvailableItemStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="sch0:CreateItemRequest" name="CreateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarlXAPISoap11" type="sch0:CarlXAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    <wsdl:operation name="CreateTempItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CreateTempItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CreateTempItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateFullCallNumber" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CalculateFullCallNumberRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CalculateFullCallNumberResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFillList" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="GetFillListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="GetFillListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="DeleteItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemNote" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="UpdateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemList" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="GetItemListRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="GetItemListResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemNotes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="GetItemNotesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="GetItemNotesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemNote" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="DeleteItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemSuppression" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="GetItemSuppressionRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="GetItemSuppressionResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="UpdateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateItemResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWHO" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="GetWHORequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="GetWHOResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItemNote" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CreateItemNoteRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CreateItemNoteResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableItemStatus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="GetAvailableItemStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="GetAvailableItemStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CreateItemRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarlXAPIService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:port binding="sch0:CarlXAPISoap11" name="CarlXAPISoap11" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:address location="http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
